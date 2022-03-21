@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+@import "_variables";
+@import "_animation";
+body {
+  font-family: $fnt_main;
+  font-size: $fnt_size;
+  overflow-x: hidden;
+}
+a {
+  text-decoration: none;
+  color: $white;
+}
+ul {
+  list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 300;
+}
+h2 {
+  text-transform: lowercase;
+}
+
+nav {
+  background: $primary;
+}
