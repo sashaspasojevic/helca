@@ -88,11 +88,10 @@ nav {
     font-weight: 300;
   }
   .drop_down {
-    //     border: 1px solid #000;
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    flex: 1;
     ul {
       position: absolute;
       left: 50%;
@@ -100,7 +99,6 @@ nav {
       display: flex;
       align-items: center;
       justify-content: center;
-      //       border: 1px solid red;
       li {
         margin: 0 1em;
       }
@@ -139,7 +137,7 @@ nav {
         align-items: center;
         justify-content: center;
         .items {
-          //   border: 1px solid $white;
+          border: 1px solid $white;
           border-radius: 50%;
           width: 30px;
           height: 30px;
@@ -175,6 +173,7 @@ nav {
       top: 50%;
       left: 50%;
       transform: translateX(-50%) translateY(-50%);
+      pointer-events: none;
 
       &::before {
         position: absolute;
@@ -197,12 +196,63 @@ nav {
     }
   }
   @media (max-width: 1200px) {
+    position: relative;
     .drop_down {
-      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: $primary_bg;
+      padding: 25px 40px;
+      z-index: 2050;
+      flex-direction: column;
+      justify-content: center;
+      transform: translate(110%);
+      transition: 0.4s all ease-in-out;
+      &.show_menu {
+        transform: translateX(0);
+      }
+      ul {
+        position: static;
+        transform: translateX(0);
+        left: 0;
+        display: block;
+        li {
+          margin-bottom: 5px;
+          a {
+            font-size: 1.3rem;
+          }
+        }
+      }
+    }
+    .right {
+      flex-direction: column;
+      margin-top: 30px;
+      .socials {
+        margin: 10px 0;
+        a {
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+      .langs {
+        margin-top: 10px;
+      }
     }
     .burger {
       display: block;
       cursor: pointer;
+      &.burger_fix {
+        position: fixed;
+        top: 25px;
+        right: 25px;
+        background-color: $primary_bg;
+        z-index: 3030;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        box-shadow: 0 0 5px rgba($white, 0.6);
+      }
     }
   }
 }

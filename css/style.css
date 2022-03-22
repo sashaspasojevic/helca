@@ -82,10 +82,10 @@ nav {
     font-size: 1.8rem;
     font-weight: 300; }
   nav .drop_down {
+    flex: 1;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    flex: 1; }
+    justify-content: flex-end; }
     nav .drop_down ul {
       position: absolute;
       left: 50%;
@@ -122,6 +122,7 @@ nav {
         align-items: center;
         justify-content: center; }
         nav .drop_down .right .shop .items {
+          border: 1px solid #e5e5e5;
           border-radius: 50%;
           width: 30px;
           height: 30px;
@@ -144,7 +145,8 @@ nav {
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translateX(-50%) translateY(-50%); }
+      transform: translateX(-50%) translateY(-50%);
+      pointer-events: none; }
       nav .burger span::before {
         position: absolute;
         content: "";
@@ -162,11 +164,52 @@ nav {
         background-color: #e5e5e5;
         transform: translateY(8px); }
   @media (max-width: 1200px) {
-    nav .drop_down {
-      display: none; }
-    nav .burger {
-      display: block;
-      cursor: pointer; } }
+    nav {
+      position: relative; }
+      nav .drop_down {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: #07a9df;
+        padding: 25px 40px;
+        z-index: 2050;
+        flex-direction: column;
+        justify-content: center;
+        transform: translate(110%);
+        transition: 0.4s all ease-in-out; }
+        nav .drop_down.show_menu {
+          transform: translateX(0); }
+        nav .drop_down ul {
+          position: static;
+          transform: translateX(0);
+          left: 0;
+          display: block; }
+          nav .drop_down ul li {
+            margin-bottom: 5px; }
+            nav .drop_down ul li a {
+              font-size: 1.3rem; }
+      nav .right {
+        flex-direction: column;
+        margin-top: 30px; }
+        nav .right .socials {
+          margin: 10px 0; }
+          nav .right .socials a:last-child {
+            margin-right: 0; }
+        nav .right .langs {
+          margin-top: 10px; }
+      nav .burger {
+        display: block;
+        cursor: pointer; }
+        nav .burger.burger_fix {
+          position: fixed;
+          top: 25px;
+          right: 25px;
+          background-color: #07a9df;
+          z-index: 3030;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          box-shadow: 0 0 5px rgba(229, 229, 229, 0.6); } }
 
 /*********************
 hero
